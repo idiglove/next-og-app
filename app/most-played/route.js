@@ -1,9 +1,11 @@
 import { ImageResponse } from "@vercel/og";
 import queryString from "query-string";
 
-export const config = {
-  runtime: "experimental-edge",
-};
+// export const config = {
+//   runtime: "experimental-edge",
+// };
+
+export const runtime = "experimental-edge";
 
 export async function GET(request) {
   const { searchParams } = request.nextUrl;
@@ -36,7 +38,7 @@ export async function GET(request) {
 
   const bgImg =
     parsedImgData?.items?.[0]?.item?.[0]?.thumbnail?.[0]?._text?.[0];
-  
+
   return new ImageResponse(
     (
       <div
